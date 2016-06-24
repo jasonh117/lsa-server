@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cors = require('cors');
+var session = require('client-sessions');
 
 var routes = require('./routes/index');
 var api = require('./routes/api');
@@ -23,6 +24,13 @@ db.once('open', function() {
 
 var app = express();
 app.use(cors());
+
+app.use(session({
+  cookieName: 'session',
+  secret: 'gerbnagujkrealghrieogeasrgaerhjklgaerhqnqlhk',
+  duration: 30 * 60 * 1000,
+  activeDuration: 5 * 60 * 1000,
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

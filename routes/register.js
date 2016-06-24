@@ -3,8 +3,8 @@ var router = express.Router();
 var User = require('../models/user');
 
 router.post('/', function(req, res) {
-  User.find({ email: req.body.email }, function (err, object) {
-    if (object[0] == undefined) {
+  User.findOne({ email: req.body.email }, function (err, object) {
+    if (object) {
         var user = new User(
           {
             name: req.body.name,

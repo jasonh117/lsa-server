@@ -8,9 +8,10 @@ var User = require('../models/user');
 // });
 
 router.post('/', function(req, res) {
-  User.find({ email: req.body.email, password: req.body.password }, function (err, object) {
-    if (object[0] != undefined) {
+  User.findOne({ email: req.body.email, password: req.body.password }, function (err, user) {
+    if (user) {
       // Successfully login
+      req.session.user = user;
       res.redirect('/');
     } else {
       // Failed to login
