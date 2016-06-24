@@ -10,10 +10,11 @@ var User = require('../models/user');
 router.post('/', function(req, res) {
   User.find({ email: req.body.email, password: req.body.password }, function (err, object) {
     if (object[0] != undefined) {
-      // Successfully loggin
+      // Successfully login
       res.redirect('/');
     } else {
-      // Failed to loggin
+      // Failed to login
+      res.redirect('/');
     }
   });
 });

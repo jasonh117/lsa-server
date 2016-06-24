@@ -11,9 +11,9 @@
 <!-- Navigation Bar !-->
 
 <nav id="nav">
-    <a class="nav_left nav_item" href="index.html">LSA</a>
-    <a class="nav_left nav_item" href="index.html">Home</a>
-    <a class="nav_left nav_item" href="about.html">About</a>
+    <a class="nav_left nav_item" href="/">LSA</a>
+    <a class="nav_left nav_item" href="/">Home</a>
+    <a class="nav_left nav_item" href="/about">About</a>
     <div class="nav_right nav_item" id="nav_register">Register</div>
     <div class="nav_right nav_item" id="nav_login">Login</div>
     <input class="nav_right nav_item" id="searchbar">
@@ -75,8 +75,8 @@
     <button class="cancel_button">X</button>
     <p class="title">Login</p>
     <form method="POST" action="/login" id="login_form">
-        <input name="email" id="login_email" placeholder="Email">
-        <input name="password" id="login_password" placeholder="Password">
+        <input type="email" name="email" id="login_email" placeholder="Email">
+        <input type="password" name="password" id="login_password" placeholder="Password">
         <button id="login_button">Login</button>
     </form>
     <p class="form_info"></p>
@@ -88,9 +88,9 @@
     <button class="cancel_button">X</button>
     <p class="title">Register</p>
     <form method="POST" action="/register" id="reg_form">
-        <input name="name" id="reg_name" placeholder="Name">
-        <input name="email" id="reg_email" placeholder="Email">
-        <input name="password" id="reg_password" placeholder="Password">
+        <input type="text" name="name" id="reg_name" placeholder="Name">
+        <input type="email" name="email" id="reg_email" placeholder="Email">
+        <input type="password" name="password" id="reg_password" placeholder="Password">
         <button id="reg_button">Register</button>
     </form>
     <p class="form_info"></p>

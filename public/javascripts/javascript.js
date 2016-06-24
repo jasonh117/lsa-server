@@ -8,7 +8,7 @@ var card_id = null;
 
 function get_server_cards() {
     $.ajax({
-        url: "http://localhost:3000/api/",
+        url: "/api/",
         type: "GET"
     })
 
@@ -23,7 +23,7 @@ function get_server_cards() {
 
 function send_new_card() {
     $.ajax({
-        url: "http://localhost:3000/api/",
+        url: "/api/",
 
         data: {
             title: $('#new_card_title').val(),
@@ -46,7 +46,7 @@ function send_new_card() {
 
 function send_edits() {
     $.ajax({
-        url: "http://localhost:3000/api/" + card_id,
+        url: "/api/" + card_id,
 
         data: {
             title: $('#new_card_title').val(),
@@ -69,7 +69,7 @@ function send_edits() {
 
 function send_delete_card() {
     $.ajax({
-        url: "http://localhost:3000/api/" + card_id,
+        url: "/api/" + card_id,
 
         type: "DELETE"
     })
@@ -79,20 +79,6 @@ function send_delete_card() {
         delcard(card_id);
         $("#"+card_id).remove();
         card_id = null;
-    })
-}
-
-function check_email_used() {
-    $.ajax({
-        url: "http://localhost:3000/api/",
-
-        data: { email: $('#reg_email').val() },
-
-        type: "GET"
-    })
-
-    .done(function(object) {
-        $('.form_info').text(object);
     })
 }
 
@@ -271,7 +257,6 @@ $(function() {
             $('.form_info').text('form not filled out');
             return false;
         }
-        // check_email_used();
         return true;
     });
 
