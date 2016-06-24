@@ -14,10 +14,18 @@
     <a class="nav_left nav_item" href="/">LSA</a>
     <a class="nav_left nav_item" href="/">Home</a>
     <a class="nav_left nav_item" href="/about">About</a>
-    <div class="nav_right nav_item" id="nav_register">Register</div>
-    <div class="nav_right nav_item" id="nav_login">Login</div>
-    <input class="nav_right nav_item" id="searchbar">
+    <% if (user) { %>
+      <a class="nav_right nav_item" href="/logout">Logout</a>
+      <a class="nav_right nav_item"><%= user.name %></a>
+      <input class="nav_right nav_item" id="searchbar">
+    <% } else { %>
+      <a class="nav_right nav_item" href="/login">Login</a>
+    <% } %>
 </nav>
+
+<div id="about_container">
+    <h1>Lazy Student App</h1>
+</div>
 
 <script src="javascripts/javascript.js"></script>
 

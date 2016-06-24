@@ -19,7 +19,11 @@ router.post('/', function(req, res) {
     {
       title: req.body.title,
       body: req.body.body,
-      tags: req.body.tags
+      tags: req.body.tags,
+      author: {
+        id: req.user._id,
+        name: req.user.name
+      }
     }
   );
   card.save(function (err, card) {

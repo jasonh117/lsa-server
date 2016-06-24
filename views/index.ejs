@@ -14,8 +14,8 @@
     <a class="nav_left nav_item" href="/">LSA</a>
     <a class="nav_left nav_item" href="/">Home</a>
     <a class="nav_left nav_item" href="/about">About</a>
-    <div class="nav_right nav_item" id="nav_register">Register</div>
-    <div class="nav_right nav_item" id="nav_login"><%= user %></div>
+    <a class="nav_right nav_item" href="/logout">Logout</a>
+    <a class="nav_right nav_item"><%= user %></a>
     <input class="nav_right nav_item" id="searchbar">
 </nav>
 
@@ -67,33 +67,6 @@
     <button class="delete_button">Delete Card</button>
     <button class="edit_button">Edit Card</button>
     <button class="download_button">Download</button>
-</div>
-
-<!-- Login Form !-->
-
-<div class="form hide" id="login">
-    <button class="cancel_button">X</button>
-    <p class="title">Login</p>
-    <form method="POST" action="/login" id="login_form">
-        <input type="email" name="email" id="login_email" placeholder="Email">
-        <input type="password" name="password" id="login_password" placeholder="Password">
-        <button id="login_button">Login</button>
-    </form>
-    <p class="form_info"></p>
-</div>
-
-<!-- Registration !-->
-
-<div class="form hide" id="register">
-    <button class="cancel_button">X</button>
-    <p class="title">Register</p>
-    <form method="POST" action="/register" id="reg_form">
-        <input type="text" name="name" id="reg_name" placeholder="Name">
-        <input type="email" name="email" id="reg_email" placeholder="Email">
-        <input type="password" name="password" id="reg_password" placeholder="Password">
-        <button id="reg_button">Register</button>
-    </form>
-    <p class="form_info"></p>
 </div>
 
 <!-- Chat Side Bar !-->

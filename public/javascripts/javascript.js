@@ -131,15 +131,6 @@ function reset_card() {
     $('#new_card_notes').val('');
     $('#new_tag').val('');
     $('#temp_tags').empty();
-
-    // Reset forms
-    $('.form_info').empty();
-    $('#login_email').val('');
-    $('#login_password').val('');
-    $('#reg_name').val('');
-    $('#reg_email').val('');
-    $('#reg_password').val('');
-    $('.form').addClass('hide');
 }
 
 function gen_preview_card(object) {
@@ -162,7 +153,8 @@ function gen_preview_card(object) {
 }
 
 $(function() {
-    get_server_cards();
+    if ($(location).attr('pathname') == '/')
+      get_server_cards();
 
     // Open Edit Card
 

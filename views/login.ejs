@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+</head>
+<body>
+
+<!-- Navigation Bar !-->
+
+<nav id="nav">
+    <a class="nav_left nav_item" href="/">LSA</a>
+    <a class="nav_left nav_item" href="/">Home</a>
+    <a class="nav_left nav_item" href="/about">About</a>
+    <a class="nav_right nav_item" href="/login">Login</a>
+</nav>
+
+<!-- Login Form !-->
+
+<div class="form" id="login">
+    <p class="title">Login</p>
+    <form method="POST" action="/login" id="login_form">
+        <input type="email" name="email" id="login_email" placeholder="Email">
+        <input type="password" name="password" id="login_password" placeholder="Password">
+        <button id="login_button">Login</button>
+    </form>
+    <p class="form_info">
+        <% if (failed) { %>
+            email and password incorrect
+        <% } %>
+    </p>
+    <a id="register_link" href="/register">Create account</a>
+</div>
+
+<script src="javascripts/javascript.js"></script>
+
+</body>
+</html>

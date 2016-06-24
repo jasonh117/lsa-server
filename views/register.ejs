@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+</head>
+<body>
+
+<!-- Navigation Bar !-->
+
+<nav id="nav">
+    <a class="nav_left nav_item" href="/">LSA</a>
+    <a class="nav_left nav_item" href="/">Home</a>
+    <a class="nav_left nav_item" href="/about">About</a>
+    <a class="nav_right nav_item" href="/login">Login</a>
+</nav>
+
+<!-- Registration !-->
+
+<div class="form" id="register">
+    <p class="title">Register</p>
+    <form method="POST" action="/register" id="reg_form">
+        <input type="text" name="name" id="reg_name" placeholder="Name">
+        <input type="email" name="email" id="reg_email" placeholder="Email">
+        <input type="password" name="password" id="reg_password" placeholder="Password">
+        <button id="reg_button">Register</button>
+    </form>
+    <p class="form_info">
+        <% if (failed) { %>
+            email already exists
+        <% } %>
+    </p>
+</div>
+
+<script src="javascripts/javascript.js"></script>
+
+</body>
+</html>

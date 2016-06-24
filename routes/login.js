@@ -2,10 +2,10 @@ var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
 
-/* GET users listing. */
-// router.get('/', function(req, res, next) {
-//   res.send('respond with a resource');
-// });
+/* GET login page. */
+router.get('/', function(req, res, next) {
+  res.render('login', { title: 'Lazy Student App', failed: false });
+});
 
 router.post('/', function(req, res) {
   User.findOne({ email: req.body.email, password: req.body.password }, function (err, user) {
@@ -15,7 +15,7 @@ router.post('/', function(req, res) {
       res.redirect('/');
     } else {
       // Failed to login
-      res.redirect('/');
+      res.render('login', { title: 'Lazy Student App', failed: true });
     }
   });
 });

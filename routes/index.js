@@ -2,23 +2,17 @@ var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
 
+function requireLogin (req, res, next) {
+  if (!req.user) {
+    res.redirect('/login');
+  } else {
+    next();
+  }
+};
+
 /* GET home page. */
-router.get('/', function(req, res, next) {
-    if (req.session && req.session.user) {
-        User.findOne({ email: req.session.user.email }, function (err, user) {
-            if (user) {
-                // Found session
-                res.locals.user = user;
-                res.render('index', { title: 'Lazy Student App', user: user.name });
-            } else {
-                // Failed to find session
-                req.session.reset();
-                res.render('index', { title: 'Lazy Student App', user: 'Login' });
-            }
-        });
-    } else {
-        res.render('index', { title: 'Lazy Student App', user: 'Login' });
-    }
+router.get('/', requireLogin, function(req, res, next) {
+    res.render('index', { title: 'Lazy Student App', user: req.user.name });
 });
 
 module.exports = router;
