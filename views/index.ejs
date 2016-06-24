@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+</head>
+<body>
+
+<!-- Navigation Bar !-->
+
+<nav id="nav">
+    <a class="nav_left nav_item" href="index.html">LSA</a>
+    <a class="nav_left nav_item" href="index.html">Home</a>
+    <a class="nav_left nav_item" href="about.html">About</a>
+    <div class="nav_right nav_item" id="nav_register">Register</div>
+    <div class="nav_right nav_item" id="nav_login">Login</div>
+    <input class="nav_right nav_item" id="searchbar">
+</nav>
+
+<!-- Main Container !-->
+
+<div id="main_container">
+    <div class="preview">
+        <button id="add_card_btn">+ Add Card</button>
+    </div>
+</div>
+
+<!-- Edit Card !-->
+
+<div class="card hide" id="edit_card">
+    <p class="card_date">Author on mm-dd-YYYY</p>
+    <button class="cancel_button">X</button>
+    <p class="title">
+        <input id="new_card_title" placeholder="put title here...">
+    </p>
+    <div class="card_tags">
+        <ul>
+            <div id="temp_tags"></div>
+            <li><input id="new_tag" placeholder="put tag here..."></li>
+        </ul>
+    </div>
+    <div class="text_content_container">
+        <textarea class="text_area" id="new_card_notes" placeholder="put notes here..."></textarea>
+    </div>
+    <button class="upload_button">UPLOAD FILE</button>
+    <button class="save_button">Save</button>
+</div>
+
+<!-- Normal Card !-->
+
+<div class="card hide" id="normal_card">
+    <p class="card_date">Author on mm-dd-YYYY</p>
+    <button class="cancel_button">X</button>
+    <p class="title"></p>
+    <div class="card_tags"><ul></ul></div>
+    <p class="text_content_container"></p>
+    <div class="thumbnails-container">
+        <div class="thumbnail"></div>
+        <div class="thumbnail"></div>
+        <div class="thumbnail"></div>
+        <div class="thumbnail"></div>
+        <div class="thumbnail"></div>
+        <div class="thumbnail"></div>
+    </div>
+    <button class="delete_button">Delete Card</button>
+    <button class="edit_button">Edit Card</button>
+    <button class="download_button">Download</button>
+</div>
+
+<!-- Login Form !-->
+
+<div class="form hide" id="login">
+    <button class="cancel_button">X</button>
+    <p class="title">Login</p>
+    <form method="POST" action="/login" id="login_form">
+        <input name="email" id="login_email" placeholder="Email">
+        <input name="password" id="login_password" placeholder="Password">
+        <button id="login_button">Login</button>
+    </form>
+    <p class="form_info"></p>
+</div>
+
+<!-- Registration !-->
+
+<div class="form hide" id="register">
+    <button class="cancel_button">X</button>
+    <p class="title">Register</p>
+    <form method="POST" action="/register" id="reg_form">
+        <input name="name" id="reg_name" placeholder="Name">
+        <input name="email" id="reg_email" placeholder="Email">
+        <input name="password" id="reg_password" placeholder="Password">
+        <button id="reg_button">Register</button>
+    </form>
+    <p class="form_info"></p>
+</div>
+
+<!-- Chat Side Bar !-->
+
+<div id="chat_container" class="">
+    <p id="chat_title">Chat</p>
+    <div id="chat_middle_container">
+
+        <div class="chat_message_container">
+            <div class="chat_message_info">
+                author - date
+            </div>
+            <div class="chat_message">
+                message
+            </div>
+        </div>
+
+        <div class="chat_message_container"><div class="chat_message_info">author - date</div><div class="chat_message">message</div></div>
+        <div class="chat_message_container"><div class="chat_message_info">author - date</div><div class="chat_message">message</div></div>
+        <div class="chat_message_container"><div class="chat_message_info">author - date</div><div class="chat_message">message</div></div>
+        <div class="chat_message_container"><div class="chat_message_info">author - date</div><div class="chat_message">message</div></div>
+        <div class="chat_message_container"><div class="chat_message_info">author - date</div><div class="chat_message">message</div></div>
+        <div class="chat_message_container"><div class="chat_message_info">author - date</div><div class="chat_message">message</div></div>
+        <div class="chat_message_container"><div class="chat_message_info">author - date</div><div class="chat_message">message</div></div>
+        <div class="chat_message_container"><div class="chat_message_info">author - date</div><div class="chat_message">message</div></div>
+        <div class="chat_message_container"><div class="chat_message_info">author - date</div><div class="chat_message">message</div></div>
+        <div class="chat_message_container"><div class="chat_message_info">author - date</div><div class="chat_message">message</div></div>
+        <div class="chat_message_container"><div class="chat_message_info">author - date</div><div class="chat_message">message</div></div>
+        <div class="chat_message_container"><div class="chat_message_info">author - date</div><div class="chat_message">message</div></div>
+        <div class="chat_message_container"><div class="chat_message_info">author - date</div><div class="chat_message">message</div></div>
+        <div class="chat_message_container"><div class="chat_message_info">author - date</div><div class="chat_message">message</div></div>
+        <div class="chat_message_container"><div class="chat_message_info">author - date</div><div class="chat_message">message</div></div>
+        <div class="chat_message_container"><div class="chat_message_info">author - date</div><div class="chat_message">message</div></div>
+        <div class="chat_message_container"><div class="chat_message_info">author - date</div><div class="chat_message">message</div></div>
+        <div class="chat_message_container"><div class="chat_message_info">author - date</div><div class="chat_message">message</div></div>
+        <div class="chat_message_container"><div class="chat_message_info">author - date</div><div class="chat_message">message</div></div>
+        <div class="chat_message_container"><div class="chat_message_info">author - date</div><div class="chat_message">message</div></div>
+
+    </div>
+
+    <div id="chat_bottom_container">
+        <div id="chat_textbox">
+            <textarea id="chat_text_area" placeholder="Type in chat here..."></textarea>
+        </div>
+    </div>
+</div>
+
+<script src="javascripts/javascript.js"></script>
+
+</body>
+</html>

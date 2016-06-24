@@ -1,0 +1,455 @@
+html, body {
+    font-family: Arial;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #fff url("../images/wood.jpg");
+}
+
+a:link {
+    text-decoration: none;
+}
+
+.hide {
+    display: none !important;
+}
+
+button {
+    outline: none;
+    color: #666;
+    border: 1px solid #AAA;
+}
+
+button:hover {
+    background: rgba(86, 47, 14, 0.4);
+}
+
+button:active {
+}
+
+/* Navigation Bar */
+
+nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    background: rgba(86, 47, 14, 0.4);
+    color: white;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.nav_left {
+    float: left;
+}
+
+.nav_right {
+    float: right;
+}
+
+.nav_item {
+    display: inline-block;
+    padding: 0 20px;
+    height: 60px;
+    line-height: 60px;
+    color: white;
+}
+
+.nav_item:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#searchbar:hover {
+    background: rgba(0, 0, 0, 0.2) url("../images/search.png") no-repeat left 12px center;
+}
+
+#searchbar {
+    background: url("../images/search.png") no-repeat left 12px center;
+    border: 0;
+    outline: none;
+    padding-left: 40px;
+}
+
+#user {
+
+}
+
+/* Main Container */
+
+#main_container {
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 60px;
+    margin-right: 300px;
+    padding: 5px;
+}
+
+#add_card_btn {
+    width: 250px;
+    height: 300px;
+    outline: none;
+    font-size: 30px;
+    background: transparent;
+    border: 0;
+    color: #666;
+}
+
+/* Preview Card */
+
+.preview {
+    position: relative;
+    width: 250px;
+    height: 300px;
+    margin: 5px;
+    color: #666;
+    background: white url("../images/ricepaper2.png");
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+}
+
+.preview:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), 0 6px 20px rgba(0, 0, 0, 0.49);
+    -moz-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), 0 6px 20px rgba(0, 0, 0, 0.49);
+    -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), 0 6px 20px rgba(0, 0, 0, 0.49);
+}
+
+.preview:active {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7), 0 6px 20px rgba(0, 0, 0, 0.65);
+    -moz-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7), 0 6px 20px rgba(0, 0, 0, 0.65);
+    -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7), 0 6px 20px rgba(0, 0, 0, 0.65);
+}
+
+.preview_body {
+    margin: 0;
+    padding: 10px;
+}
+
+.preview_date {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 5px;
+    background: rgba(86, 47, 14, 0.2);
+    color: #FFF;
+}
+
+.preview img {
+    text-align: center;
+    width: 250px;
+    height: 220px;
+}
+
+/* Shared Card Properties */
+
+.title {
+    text-align: center;
+    margin: 0;
+    padding: 3px 0;
+    font-weight: bold;
+}
+
+.card_tags {
+    display: inline-block;
+    margin-top: 3px;
+}
+
+.card_tags div {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+.card_tags ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.card_tags li {
+    float: left;
+    margin: 1px;
+    padding: 5px 7px;
+    background: rgba(86, 47, 14, 0.4);
+    border-radius: 10px;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.temp_tag:hover {
+    background: rgba(86, 47, 14, 0.8);
+}
+
+/* Edit Card & Normal Card */
+
+.card {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 600px;
+    color: #666;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+    background: white url("../images/ricepaper2.png");
+    z-index: 10;
+}
+
+.card_date {
+    text-align: right;
+    margin: 0 25px 0 0 ;
+    padding: 1px;
+}
+
+.text_content_container {
+    margin: 0;
+    padding: 10px;
+    height: 300px;
+    background: transparent;
+    border: 1px solid #DDD;
+    box-shadow: 0 0 5px #DDD inset;
+    -moz-box-shadow: 0 0 5px #DDD inset;
+    -webkit-box-shadow: 0 0 5px #DDD inset;
+    color: #666;
+}
+
+.cancel_button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: white;
+}
+
+/* Edit Card */
+
+.text_area {
+    resize: none;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    outline: none;
+    background: transparent;
+    color: #666;
+    font-size: 16px;
+}
+
+#new_card_title, #new_tag {
+    border: 0;
+    outline: none;
+    background: transparent;
+    font-size: 16px;
+    text-align: center;
+}
+
+#new_card_title {
+    color: #666;
+    width: 90%;
+}
+
+#new_tag {
+    color: white;
+    width: 100px;
+}
+
+#new_tag::-webkit-input-placeholder {
+   color: #DDD;
+}
+
+#new_tag:-moz-placeholder {
+   color: #DDD;
+}
+
+#new_tag::-moz-placeholder {
+   color: #DDD;
+}
+
+#new_tag:-ms-input-placeholder {
+   color: #DDD;
+}
+
+.upload_button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 100px;
+    text-align: center;
+}
+
+.save_button {
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+    margin: 0;
+    padding: 5px 50px;
+    background: white;
+}
+
+/* Normal Card */
+
+#normal_card .text_content_container {
+    white-space: pre-wrap;
+}
+
+.thumbnails-container {
+    overflow-x: scroll;
+    white-space: nowrap;
+}
+
+.thumbnail {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background: rgba(86, 47, 14, 0.4);
+}
+
+.delete_button {
+    position: absolute;
+    left: 25px;
+    bottom: 25px;
+    margin: 0;
+    padding: 5px;
+    background: white;
+}
+
+.edit_button {
+    position: absolute;
+    left: 120px;
+    bottom: 25px;
+    margin: 0;
+    padding: 5px;
+    background: white;
+}
+
+.download_button {
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+    margin: 0;
+    padding: 5px;
+    background: white;
+}
+
+/* Login */
+.form {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 230px;
+    color: #666;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+    background: white url("../images/ricepaper2.png");
+    z-index: 10;
+}
+
+.form input {
+    margin: 10px 20px;
+    font-size: 16px;
+    width: 80%;
+    padding: 0;
+    border: 0;
+    outline: none;
+    background: transparent;
+    color: #666;
+    font-size: 16px;
+}
+
+.form button:last-child {
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+    margin: 0;
+    padding: 5px;
+    background: white;
+}
+
+.form button:last-child:hover {
+    background: rgba(86, 47, 14, 0.4);
+}
+
+.form_info {
+    margin: 10px 20px;
+    color: red;
+}
+
+
+/* Chat Side Bar */
+
+#chat_container {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    top: 60px;
+    width: 300px;
+    color: white;
+    background: rgba(86, 47, 14, 0.4);
+    box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+#chat_title {
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+#chat_middle_container {
+    overflow-y: scroll;
+    white-space: nowrap;
+    flex: 1;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.4) inset;
+    -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.4) inset;
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.4) inset;
+}
+
+.chat_message_container {
+    height: 50px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    margin: 0;
+    padding: 0 10px;
+    font-size: 14px;
+}
+
+.chat_message_info {
+    margin: 0;
+    padding: 0;
+}
+
+.chat_message {
+    margin: 0;
+    padding-left: 10px;
+}
+
+#chat_bottom_container {
+    padding: 10px;
+}
+
+#chat_textbox {
+    height: 70px;
+}
+
+#chat_text_area {
+    background: transparent;
+    color: white;
+    resize: none;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    outline: none;
+}
