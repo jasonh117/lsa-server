@@ -7,7 +7,9 @@ var schema = new Schema({
   tags: [String],
   images: [String],
   author: Object,
-  createdAt: {type: Date, default: Date.now}
+  createdAt: { type: Date, default: Date.now }
 });
+
+schema.index({"$**":"text"});
 
 module.exports = mongoose.model('cards', schema);

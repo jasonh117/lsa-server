@@ -6,9 +6,14 @@ var cards = {};
 var tags = [];
 var card_id = null;
 
-function get_server_cards() {
+function get_server_cards(query) {
     $.ajax({
         url: "/api/",
+
+        data: {
+            search: query
+        },
+
         type: "GET"
     })
 
@@ -260,6 +265,15 @@ $(function() {
             return false;
         }
         return true;
+    });
+
+    // searchbar
+
+    $('#searchbar').keypress(function(e) {
+        if((e.keyCode || e.which) == 13) {
+            $('.preview_cards').remove();
+            get_server_cards(this.value);
+        }
     });
 
 });
