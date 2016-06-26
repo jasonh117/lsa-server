@@ -3,7 +3,11 @@ var router = express.Router();
 var Card = require('../models/card');
 
 router.get('/', function(req, res, next) {
-  Card.find(function(err, object) {
+  var query = {};
+  if (req.query.search)
+      query = { $text: { $search: req.query.search } };
+  Card.find(query, function(err, object) {
+    console.log(object);
     if (err) {
       console.log(err);
     } else {
