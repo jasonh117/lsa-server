@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 var session = require('client-sessions');
+var socket_io = require('socket.io');
 
 var User = require('./models/user');
 
@@ -26,6 +27,16 @@ db.once('open', function() {
 
 var app = express();
 app.use(cors());
+
+// Chat Server
+var io = socket_io();
+app.io = io;
+
+io.on('connection', function(socket){
+  socket.on('chat message', function(msg){
+    io.emit('chat message', msg);
+  });
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

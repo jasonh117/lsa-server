@@ -5,6 +5,7 @@
     <title><%= title %></title>
     <link rel="stylesheet" href="stylesheets/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
 
@@ -68,19 +69,7 @@
 
 <div class="bar_style" id="chat_container">
     <p id="chat_title">Chat</p>
-    <div id="chat_middle_container">
-
-        <div class="chat_message_container">
-            <div class="chat_message_info">
-                author - date
-            </div>
-            <div class="chat_message">
-                message
-            </div>
-        </div>
-
-    </div>
-
+    <div id="chat_middle_container"></div>
     <div id="chat_bottom_container">
         <div id="chat_textbox">
             <textarea id="chat_text_area" placeholder="Type in chat here..."></textarea>
@@ -89,6 +78,7 @@
 </div>
 
 <script src="javascripts/javascript.js"></script>
+<script src="javascripts/chat.js"></script>
 
 </body>
 </html>
