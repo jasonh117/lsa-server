@@ -7,7 +7,6 @@ router.get('/', function(req, res, next) {
   if (req.query.search)
       query = { $text: { $search: req.query.search } };
   Card.find(query, function(err, object) {
-    console.log(object);
     if (err) {
       console.log(err);
     } else {

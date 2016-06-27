@@ -97,7 +97,7 @@ function delcard(id) {
 
 function normal_card(data) {
     card_id = data._id;
-    $('.card_date').text(data.createdAt.substring(0,10));
+    $('.card_date').text(data.author.name + " on " + data.createdAt.substring(0,10));
     $('#normal_card .title').text(data.title);
     $('#normal_card .card_tags ul').empty();
     for (var tag in data.tags)
@@ -107,7 +107,7 @@ function normal_card(data) {
 }
 
 function edit_card(data) {
-    $('.card_date').text(data.createdAt.substring(0,10));
+    $('.card_date').text(data.author.name + " on " + data.createdAt.substring(0,10));
     $('#new_card_title').val(data.title);
     for (var index in data.tags) {
         tags.push(data.tags[index]);
@@ -124,6 +124,7 @@ function reset_card() {
     // Reset Normal & Edit Card
     $('.card').addClass('hide');
     $('.card_date').empty();
+    $('#delete_button').removeClass('hide');
 
     // Reset Normal Card
     $('#normal_card .title').empty();
@@ -142,7 +143,7 @@ function gen_preview_card(object) {
     var notes = object.body.replace(/\n/g, "<br>");
 
     var new_card =
-        `<div class="preview preview_cards" id="${object._id}">
+        `<div class="preview card_style preview_cards" id="${object._id}">
             <p class="title">${object.title}</p>
             <div class="card_tags">
                 <ul>`;
@@ -166,6 +167,7 @@ $(function() {
     $('#add_card_btn').on('click', function() {
         card_id = null;
         reset_card();
+        $('#delete_button').addClass('hide');
         $('#edit_card').removeClass('hide');
     });
 
@@ -178,7 +180,7 @@ $(function() {
 
     // Save the card from the Edit Card
 
-    $('.save_button').on('click', function() {
+    $('#save_button').on('click', function() {
         if ($('#new_card_title').val() == "")
             $('#new_card_title').val("No Title");
 
@@ -220,13 +222,13 @@ $(function() {
 
     // Deleting Card from Normal Card
 
-    $('.delete_button').on('click', function() {
+    $('#delete_button').on('click', function() {
         send_delete_card();
     });
 
     // Edit Card from Normal Card
 
-    $('.edit_button').on('click', function() {
+    $('#edit_button').on('click', function() {
         reset_card();
 
         // show Edit Card with data

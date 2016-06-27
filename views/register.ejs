@@ -10,7 +10,7 @@
 
 <!-- Navigation Bar !-->
 
-<nav id="nav">
+<nav class="bar_style" id="nav">
     <a class="nav_left nav_item" href="/">LSA</a>
     <a class="nav_left nav_item" href="/">Home</a>
     <a class="nav_left nav_item" href="/about">About</a>
@@ -19,13 +19,13 @@
 
 <!-- Registration !-->
 
-<div class="form" id="register">
+<div class="form center card_style" id="register">
     <p class="title">Register</p>
     <form method="POST" action="/register" id="reg_form">
         <input type="text" name="name" id="reg_name" placeholder="Name">
         <input type="email" name="email" id="reg_email" placeholder="Email">
         <input type="password" name="password" id="reg_password" placeholder="Password">
-        <button id="reg_button">Register</button>
+        <button class="card_bottom card_right" id="reg_button">Register</button>
     </form>
     <p class="form_info">
         <% if (failed) { %>

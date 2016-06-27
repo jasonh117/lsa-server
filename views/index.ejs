@@ -10,7 +10,7 @@
 
 <!-- Navigation Bar !-->
 
-<nav id="nav">
+<nav class="bar_style" id="nav">
     <a class="nav_left nav_item" href="/">LSA</a>
     <a class="nav_left nav_item" href="/">Home</a>
     <a class="nav_left nav_item" href="/about">About</a>
@@ -22,15 +22,15 @@
 <!-- Main Container !-->
 
 <div id="main_container">
-    <div class="preview">
+    <div class="preview card_style">
         <button id="add_card_btn">+ Add Card</button>
     </div>
 </div>
 
 <!-- Edit Card !-->
 
-<div class="card hide" id="edit_card">
-    <p class="card_date">Author on mm-dd-YYYY</p>
+<div class="card center card_style hide" id="edit_card">
+    <p class="card_date"></p>
     <button class="cancel_button">X</button>
     <p class="title">
         <input id="new_card_title" placeholder="put title here...">
@@ -42,36 +42,31 @@
         </ul>
     </div>
     <div class="text_content_container">
-        <textarea class="text_area" id="new_card_notes" placeholder="put notes here..."></textarea>
+        <textarea id="new_card_notes" placeholder="put notes here..."></textarea>
     </div>
     <button class="upload_button">UPLOAD FILE</button>
-    <button class="save_button">Save</button>
+    <button class="card_bottom card_left" id="delete_button">Delete Card</button>
+    <button class="card_bottom card_right" id="save_button">Save</button>
 </div>
 
 <!-- Normal Card !-->
 
-<div class="card hide" id="normal_card">
-    <p class="card_date">Author on mm-dd-YYYY</p>
+<div class="card center card_style hide" id="normal_card">
+    <p class="card_date"></p>
     <button class="cancel_button">X</button>
     <p class="title"></p>
     <div class="card_tags"><ul></ul></div>
     <p class="text_content_container"></p>
     <div class="thumbnails-container">
         <div class="thumbnail"></div>
-        <div class="thumbnail"></div>
-        <div class="thumbnail"></div>
-        <div class="thumbnail"></div>
-        <div class="thumbnail"></div>
-        <div class="thumbnail"></div>
     </div>
-    <button class="delete_button">Delete Card</button>
-    <button class="edit_button">Edit Card</button>
-    <button class="download_button">Download</button>
+    <button class="card_bottom card_left" id="edit_button">Edit Card</button>
+    <button class="card_bottom card_right" id="download_button">Download</button>
 </div>
 
 <!-- Chat Side Bar !-->
 
-<div id="chat_container" class="">
+<div class="bar_style" id="chat_container">
     <p id="chat_title">Chat</p>
     <div id="chat_middle_container">
 
@@ -83,27 +78,6 @@
                 message
             </div>
         </div>
-
-        <div class="chat_message_container"><div class="chat_message_info">author - date</div><div class="chat_message">message</div></div>
-        <div class="chat_message_container"><div class="chat_message_info">author - date</div><div class="chat_message">message</div></div>
-        <div class="chat_message_container"><div class="chat_message_info">author - date</div><div class="chat_message">message</div></div>
-        <div class="chat_message_container"><div class="chat_message_info">author - date</div><div class="chat_message">message</div></div>
-        <div class="chat_message_container"><div class="chat_message_info">author - date</div><div class="chat_message">message</div></div>
-        <div class="chat_message_container"><div class="chat_message_info">author - date</div><div class="chat_message">message</div></div>
-        <div class="chat_message_container"><div class="chat_message_info">author - date</div><div class="chat_message">message</div></div>
-        <div class="chat_message_container"><div class="chat_message_info">author - date</div><div class="chat_message">message</div></div>
-        <div class="chat_message_container"><div class="chat_message_info">author - date</div><div class="chat_message">message</div></div>
-        <div class="chat_message_container"><div class="chat_message_info">author - date</div><div class="chat_message">message</div></div>
-        <div class="chat_message_container"><div class="chat_message_info">author - date</div><div class="chat_message">message</div></div>
-        <div class="chat_message_container"><div class="chat_message_info">author - date</div><div class="chat_message">message</div></div>
-        <div class="chat_message_container"><div class="chat_message_info">author - date</div><div class="chat_message">message</div></div>
-        <div class="chat_message_container"><div class="chat_message_info">author - date</div><div class="chat_message">message</div></div>
-        <div class="chat_message_container"><div class="chat_message_info">author - date</div><div class="chat_message">message</div></div>
-        <div class="chat_message_container"><div class="chat_message_info">author - date</div><div class="chat_message">message</div></div>
-        <div class="chat_message_container"><div class="chat_message_info">author - date</div><div class="chat_message">message</div></div>
-        <div class="chat_message_container"><div class="chat_message_info">author - date</div><div class="chat_message">message</div></div>
-        <div class="chat_message_container"><div class="chat_message_info">author - date</div><div class="chat_message">message</div></div>
-        <div class="chat_message_container"><div class="chat_message_info">author - date</div><div class="chat_message">message</div></div>
 
     </div>
 
