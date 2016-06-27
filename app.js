@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 var session = require('client-sessions');
-var socket_io = require('socket.io');
+var socket_io = require('./socketio');
 
 var User = require('./models/user');
 
@@ -15,6 +15,7 @@ var api = require('./routes/api');
 var register = require('./routes/register');
 var login = require('./routes/login');
 var about = require('./routes/about');
+var chat = require('./routes/chat');
 
 var mongoose = require('mongoose');
 var mongoURL = 'mongodb://localhost/lazyapp';
@@ -23,20 +24,10 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   console.log("succesfully connected to mongo at: " + mongoURL);
-})
+});
 
 var app = express();
 app.use(cors());
-
-// Chat Server
-var io = socket_io();
-app.io = io;
-
-io.on('connection', function(socket){
-  socket.on('chat message', function(msg){
-    io.emit('chat message', msg);
-  });
-});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -83,6 +74,7 @@ app.use('/api', api);
 app.use('/register', register);
 app.use('/login', login);
 app.use('/about', about);
+app.use('/chat', chat);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
