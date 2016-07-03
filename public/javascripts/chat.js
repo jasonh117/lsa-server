@@ -2,7 +2,7 @@
  * Created by JasonHsieh on 6/27/16.
  */
 
-var socket = io("http://localhost:8080");
+var socket = io();
 
 function add_chat_message(chat) {
     var chat_container = $('#chat_middle_container');
