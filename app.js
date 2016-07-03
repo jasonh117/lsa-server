@@ -14,6 +14,7 @@ var api = require('./routes/api');
 var register = require('./routes/register');
 var login = require('./routes/login');
 var about = require('./routes/about');
+var chat = require('./routes/chat');
 
 var mongoose = require('mongoose');
 var mongoURL = 'mongodb://localhost/lazyapp';
@@ -22,7 +23,7 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   console.log("succesfully connected to mongo at: " + mongoURL);
-})
+});
 
 var app = express();
 app.use(cors());
@@ -72,6 +73,7 @@ app.use('/api', api);
 app.use('/register', register);
 app.use('/login', login);
 app.use('/about', about);
+app.use('/chat', chat);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

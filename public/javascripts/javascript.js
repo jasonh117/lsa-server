@@ -278,4 +278,12 @@ $(function() {
         }
     });
 
+    $('#chat_tab').on('click', function() {
+        $('#chat_container').toggleClass('hide_chat');
+        $('#main_container').toggleClass('expand_main_container')
+        $(this).text(function(i, text){
+          return text === "Hide" ? "Show" : "Hide";
+      })
+    });
+
 });

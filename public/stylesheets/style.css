@@ -123,6 +123,11 @@ nav {
     margin-top: 60px;
     margin-right: 300px;
     padding: 5px;
+    transition: all 0.25s;
+}
+
+.expand_main_container {
+    margin-right: 0 !important;
 }
 
 #add_card_btn {
@@ -140,11 +145,10 @@ nav {
 
 
 #about_container {
-    display: flex;
-    flex-flow: row wrap;
     margin-top: 60px;
     padding: 50px;
-    color: #DDD;
+    width : 600px;
+    color: white;
 }
 
 #about_container h1 {
@@ -400,9 +404,27 @@ nav {
     bottom: 0;
     top: 60px;
     width: 300px;
+    transition: all 0.25s;
     box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.4);
     -moz-box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.4);
     -webkit-box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+#chat_tab {
+    position: absolute;
+    left: -50px;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 5px 0 5px 25px;
+}
+
+#chat_tab:hover {
+    background: rgba(86, 47, 14, 0.6);
+}
+
+.hide_chat {
+    width: 0 !important;
 }
 
 #chat_title {
