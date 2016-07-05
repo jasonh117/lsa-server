@@ -18,11 +18,10 @@ function get_server_cards(query) {
     })
 
     .done(function(object) {
-        var data = object.data;
-        for (var index in data) {
-            var new_card = gen_preview_card(addcard(data[index]));
+        object.data.map(function(card) {
+            var new_card = gen_preview_card(addcard(card));
             $("#main_container").prepend(new_card);
-        }
+        });
     })
 }
 
@@ -100,8 +99,9 @@ function normal_card(data) {
     $('.card_date').text(data.author.name + " on " + data.createdAt.substring(0,10));
     $('#normal_card .title').text(data.title);
     $('#normal_card .card_tags ul').empty();
-    for (var tag in data.tags)
-        $('#normal_card .card_tags ul').append($('<li>').text(data.tags[tag]));
+    data.tags.map(function(tag) {
+        $('#normal_card .card_tags ul').append($('<li>').text(tag));
+    });
     $('#normal_card .text_content_container').text(data.body);
     $('#normal_card').removeClass('hide');
 }
@@ -109,11 +109,11 @@ function normal_card(data) {
 function edit_card(data) {
     $('.card_date').text(data.author.name + " on " + data.createdAt.substring(0,10));
     $('#new_card_title').val(data.title);
-    for (var index in data.tags) {
-        tags.push(data.tags[index]);
-        var tag = $('<li>').addClass("temp_tag").text(data.tags[index]);
-        $('#temp_tags').append(tag);
-    }
+    data.tags.map(function(tag) {
+        tags.push(tag);
+        var tag_html = $('<li>').addClass("temp_tag").text(tag);
+        $('#temp_tags').append(tag_html);
+    });
     $('#new_card_notes').val(data.body);
     $('#edit_card').removeClass('hide');
 }
@@ -141,16 +141,17 @@ function reset_card() {
 
 function gen_preview_card(object) {
     var notes = object.body.replace(/\n/g, "<br>");
-
+    
+    var tags = ``;
+    object.tags.map(function(tag) {
+        tags += `<li>${tag}</li>`;
+    });
+    
     var new_card =
         `<div class="preview card_style preview_cards" id="${object._id}">
             <p class="title">${object.title}</p>
             <div class="card_tags">
-                <ul>`;
-    for (var tag in object.tags)
-        new_card += `<li>${object.tags[tag]}</li>`;
-    new_card +=
-                `</ul>
+                <ul>${tags}</ul>
             </div>
             <p class="preview_body">${notes}</p>
             <div class="preview_date">${object.createdAt.substring(0,10)}</div>
@@ -159,8 +160,8 @@ function gen_preview_card(object) {
 }
 
 $(function() {
-    if ($(location).attr('pathname') == '/')
-      get_server_cards();
+    if (location.pathname === '/')
+        get_server_cards();
 
     // Open Edit Card
 
@@ -183,17 +184,14 @@ $(function() {
     $('#save_button').on('click', function() {
         if ($('#new_card_title').val() == "")
             $('#new_card_title').val("No Title");
-
-        if (card_id == null)
-            send_new_card();
-        else
-            send_edits();
+        
+        card_id == null ? send_new_card() : send_edits();
     });
 
     // Add new tags in Edit Card
 
     $('#new_tag').keypress(function(e) {
-        if((e.keyCode || e.which) == 13 && this.value != "") {
+        if(e.which === 13 && this.value != "") {
             var tag = $('<li>').addClass("temp_tag").text(this.value);
             $('#temp_tags').append(tag);
             tags.push(this.value);
@@ -272,7 +270,7 @@ $(function() {
     // searchbar
 
     $('#searchbar').keypress(function(e) {
-        if((e.keyCode || e.which) == 13) {
+        if(e.which === 13) {
             $('.preview_cards').remove();
             get_server_cards(this.value);
         }
