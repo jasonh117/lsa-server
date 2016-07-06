@@ -46,7 +46,10 @@
     <div class="text_content_container">
         <textarea id="new_card_notes" placeholder="put notes here..."></textarea>
     </div>
-    <button class="upload_button">UPLOAD FILE</button>
+    <form method="POST" action="/upload" encType="multipart/form-data">
+        <input type="file" class="upload" id="upload_files" name="sampleFile" accept="image/jpg, image/jpeg, image/gif, image/png">
+        <button type='submit' class="upload" id="upload_button">Upload Files</button>
+    </form>
     <button class="card_bottom card_left" id="delete_button">Delete Card</button>
     <button class="card_bottom card_right" id="save_button">Save</button>
 </div>
@@ -59,7 +62,9 @@
     <p class="title"></p>
     <div class="card_tags"><ul></ul></div>
     <p class="text_content_container"></p>
+    <img class="card_image" width="50px" height="0px">
     <div class="thumbnails-container">
+
         <div class="thumbnail"></div>
     </div>
     <button class="card_bottom card_left" id="edit_button">Edit Card</button>

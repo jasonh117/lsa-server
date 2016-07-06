@@ -5,7 +5,7 @@ var schema = new Schema({
   title: String,
   body: String,
   tags: [String],
-  images: [String],
+  images: { data: Buffer, contentType: String },
   author: Object,
   createdAt: { type: Date, default: Date.now }
 });

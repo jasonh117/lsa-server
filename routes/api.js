@@ -1,6 +1,26 @@
 var express = require('express');
 var router = express.Router();
 var Card = require('../models/card');
+var fs = require('fs');
+
+// router.post('/files', function(req, res) {
+//     var sampleFile;
+//
+// 	if (!req.files) {
+// 		res.send('No files were uploaded.');
+// 		return;
+// 	}
+//
+// 	sampleFile = req.files.sampleFile;
+// 	sampleFile.mv('./public/images/temp.png', function(err) {
+// 		if (err) {
+// 			res.status(500).send(err);
+// 		}
+// 		else {
+// 			res.send('File uploaded!');
+// 		}
+// 	});
+// });
 
 router.get('/', function(req, res, next) {
   var query = {};
@@ -23,6 +43,10 @@ router.post('/', function(req, res) {
       title: req.body.title,
       body: req.body.body,
       tags: req.body.tags,
+      images: {
+          data: fs.readFileSync('./public/images/temp.png'),
+          contextType: 'image/png'
+      },
       author: {
         id: req.user._id,
         name: req.user.name

@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 var session = require('client-sessions');
+var fileUpload = require('express-fileupload');
 
 var User = require('./models/user');
 
@@ -27,6 +28,26 @@ db.once('open', function() {
 
 var app = express();
 app.use(cors());
+// app.use(fileUpload());
+//
+// app.post('/upload', function(req, res) {
+// 	var sampleFile;
+//
+// 	if (!req.files) {
+// 		res.send('No files were uploaded.');
+// 		return;
+// 	}
+//
+// 	sampleFile = req.files.sampleFile;
+// 	sampleFile.mv('./public/images/temp.png', function(err) {
+// 		if (err) {
+// 			res.status(500).send(err);
+// 		}
+// 		else {
+// 			res.send('File uploaded!');
+// 		}
+// 	});
+// });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

@@ -103,6 +103,8 @@ function normal_card(data) {
         $('#normal_card .card_tags ul').append($('<li>').text(tag));
     });
     $('#normal_card .text_content_container').text(data.body);
+    // console.log(typeof data.images);
+    $('#normal_card .card_image').attr('src', data.images.data);
     $('#normal_card').removeClass('hide');
 }
 
@@ -141,12 +143,12 @@ function reset_card() {
 
 function gen_preview_card(object) {
     var notes = object.body.replace(/\n/g, "<br>");
-    
+
     var tags = ``;
     object.tags.map(function(tag) {
         tags += `<li>${tag}</li>`;
     });
-    
+
     var new_card =
         `<div class="preview card_style preview_cards" id="${object._id}">
             <p class="title">${object.title}</p>
@@ -184,7 +186,7 @@ $(function() {
     $('#save_button').on('click', function() {
         if ($('#new_card_title').val() == "")
             $('#new_card_title').val("No Title");
-        
+
         card_id == null ? send_new_card() : send_edits();
     });
 
@@ -283,5 +285,31 @@ $(function() {
           return text === "Hide" ? "Show" : "Hide";
       })
     });
+
+    // upload file
+
+    // $('#upload_button').on('click', function() {
+    //     var data = new FormData();
+    //     // var files = $('#upload_files')[0].files;
+    //     // for(var i = 0; i < files.length; i++)
+    //     //     data.append('file'+i, files[i], 'lol.jpg');
+    //     // console.log(data.get('file0'));
+    //     data.append("file", $('#upload_files')[0].files[0]);
+    //     $.ajax({
+    //         url: "/api/files",
+    //
+    //         data: data,
+    //
+    //         processData: false,
+    //
+    //         contentType: false,
+    //
+    //         type: "POST"
+    //     })
+    //
+    //     .done(function(object) {
+    //         console.log(object);
+    //     })
+    // });
 
 });
