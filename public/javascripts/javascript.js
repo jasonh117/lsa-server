@@ -31,7 +31,6 @@ function send_new_card() {
 
         data: {
             title: $('#new_card_title').val(),
-            tags: tags,
             body: $('#new_card_notes').val()
         },
 
@@ -104,6 +103,7 @@ function normal_card(data) {
     });
     $('#normal_card .text_content_container').text(data.body);
     $('#normal_card').removeClass('hide');
+    $('#normal_card .thumbnails-container').append(`<img src="${data.file}" width="50%"/>`);
 }
 
 function edit_card(data) {
@@ -141,12 +141,12 @@ function reset_card() {
 
 function gen_preview_card(object) {
     var notes = object.body.replace(/\n/g, "<br>");
-    
+
     var tags = ``;
     object.tags.map(function(tag) {
         tags += `<li>${tag}</li>`;
     });
-    
+
     var new_card =
         `<div class="preview card_style preview_cards" id="${object._id}">
             <p class="title">${object.title}</p>
@@ -154,6 +154,7 @@ function gen_preview_card(object) {
                 <ul>${tags}</ul>
             </div>
             <p class="preview_body">${notes}</p>
+            <img src="${object.file}" width="50%"/>
             <div class="preview_date">${object.createdAt.substring(0,10)}</div>
         </div>`;
     return $(new_card);
@@ -180,13 +181,31 @@ $(function() {
     });
 
     // Save the card from the Edit Card
-
-    $('#save_button').on('click', function() {
-        if ($('#new_card_title').val() == "")
-            $('#new_card_title').val("No Title");
-        
-        card_id == null ? send_new_card() : send_edits();
+    $('#cardForm').on('submit', function() {
+      var formData = new FormData(this);
+      $.ajax({
+          url: "/api",
+          data: formData,
+          type: "POST",
+          cache: false,
+        contentType: false,
+        processData: false
+      })
+      .done(function(object) {
+        var new_card = gen_preview_card(addcard(object.data));
+        $("#main_container").prepend(new_card);
+        reset_card();
+        card_id = null;
+      })
+      return false;
     });
+
+    // $('#save_button').on('click', function() {
+    //     if ($('#new_card_title').val() == "")
+    //         $('#new_card_title').val("No Title");
+    //
+    //     card_id == null ? send_new_card() : send_edits();
+    // });
 
     // Add new tags in Edit Card
 

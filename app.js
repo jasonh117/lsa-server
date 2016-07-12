@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 var session = require('client-sessions');
+var fileUpload = require('express-fileupload');
 
 var User = require('./models/user');
 
@@ -17,7 +18,7 @@ var about = require('./routes/about');
 var chat = require('./routes/chat');
 
 var mongoose = require('mongoose');
-var mongoURL = 'mongodb://localhost/lazyapp';
+var mongoURL = 'mongodb://localhost/lazyapp_jason';
 mongoose.connect(mongoURL);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -31,6 +32,7 @@ app.use(cors());
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.set('upload_folder', `${__dirname}/public/images/uploads`);
 
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -38,6 +40,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(fileUpload());
 
 app.use(session({
   cookieName: 'session',

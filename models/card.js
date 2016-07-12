@@ -7,6 +7,7 @@ var schema = new Schema({
   tags: [String],
   images: [String],
   author: Object,
+  file: String,
   createdAt: { type: Date, default: Date.now }
 });
 
